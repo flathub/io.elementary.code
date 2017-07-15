@@ -1,5 +1,5 @@
---- data/org.pantheon.scratch.appdata.xml.in
-+++ data/org.pantheon.scratch.appdata.xml.in
+--- ./data/org.pantheon.scratch.appdata.xml.in
++++ ./data/org.pantheon.scratch.appdata.xml.in
 @@ -1,7 +1,7 @@
  <?xml version="1.0" encoding="UTF-8"?>
  <!-- Copyright 2015 elementary, LLC <contact@elementary.io> -->
