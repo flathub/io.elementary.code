@@ -240,6 +240,10 @@
 				{
 					"type": "patch",
 					"path": "store-remove.patch"
+				},
+				{
+					"type": "patch",
+					"path": "appdata.patch"
 				}
 			]
 		}
