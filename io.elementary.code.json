@@ -11,6 +11,7 @@
 
 		"--socket=wayland",
 		"--socket=x11",
+		"--share=ipc",
 
 		"--own-name=org.pantheon.scratch",
 		"--own-name=org.pantheon.terminal",
