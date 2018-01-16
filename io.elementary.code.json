@@ -10,7 +10,6 @@
 		"--socket=x11",
 		"--share=ipc",
 
-		"--own-name=io.elementary.code",
 		"--own-name=io.elementary.terminal",
 		"--own-name=org.gnome.zeitgeist",
 		"--own-name=org.gnome.zeitgeist.datahub",
