@@ -10,9 +10,10 @@
 		"--socket=x11",
 		"--share=ipc",
 
-		"--own-name=org.elementary.code",
-		"--own-name=org.elementary.terminal",
+		"--own-name=io.elementary.code",
+		"--own-name=io.elementary.terminal",
 		"--own-name=org.gnome.zeitgeist",
+		"--own-name=org.gnome.zeitgeist.datahub",
 		"--talk-name=org.gtk.vfs",
 		"--talk-name=org.gtk.vfs.*",
 		"--talk-name=org.gnome.SettingsDaemon",
@@ -61,7 +62,6 @@
 			"buildsystem": "cmake",
 			"config-opts": [
 				"-DCMAKE_BUILD_TYPE=Release",
-				"-DCMAKE_INSTALL_PREFIX=/app",
 				"-DCMAKE_INSTALL_LIBDIR=/app/lib"
 			],
 			"build-options": {
