@@ -10,9 +10,8 @@
 		"--socket=x11",
 		"--share=ipc",
 
-		"--own-name=io.elementary.terminal",
-		"--own-name=org.gnome.zeitgeist",
-		"--own-name=org.gnome.zeitgeist.datahub",
+		"--talk-name=org.gnome.zeitgeist",
+		"--talk-name=org.gnome.zeitgeist.datahub",
 		"--talk-name=org.gtk.vfs",
 		"--talk-name=org.gtk.vfs.*",
 		"--talk-name=org.gnome.SettingsDaemon",
