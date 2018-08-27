@@ -1,27 +1,24 @@
 {
-	"app-id": "io.elementary.code",
-        "base": "io.elementary.Loki.BaseApp",
-        "runtime": "org.gnome.Platform",
-        "sdk": "org.gnome.Sdk",
-	"runtime-version": "3.28",
-	"command": "io.elementary.code",
-	"finish-args": [
+	"app-id":"io.elementary.code",
+	"runtime":"org.gnome.Platform",
+	"sdk":"org.gnome.Sdk",
+	"runtime-version":"3.28",
+	"base":"io.elementary.Loki.BaseApp",
+	"command":"io.elementary.code",
+	"finish-args":[
 		"--filesystem=host",
-
 		"--socket=wayland",
 		"--socket=x11",
 		"--share=ipc",
-
 		"--talk-name=org.gtk.vfs",
 		"--talk-name=org.gtk.vfs.*",
 		"--talk-name=org.gnome.SettingsDaemon",
-
 		"--filesystem=xdg-run/dconf",
 		"--filesystem=xdg-config/dconf:ro",
 		"--talk-name=ca.desrt.dconf",
 		"--env=DCONF_USER_CONFIG_DIR=.config/dconf"
 	],
-	"cleanup": [
+	"cleanup":[
 		"/include",
 		"/lib/pkgconfig",
 		"/share/vala",
@@ -30,62 +27,62 @@
 		"/lib/girepository-1.0",
 		"/lib/*.la"
 	],
-	"modules": [
+	"modules":[
 		{
-			"name": "libpeas",
-			"config-opts": [
+			"name":"libpeas",
+			"config-opts":[
 				"--disable-static",
 				"--disable-gtk-doc",
 				"--disable-python2",
 				"--disable-python3"
 			],
-			"cleanup": [
+			"cleanup":[
 				"/bin",
 				"/lib/peas-demo"
 			],
-			"sources": [
+			"sources":[
 				{
-					"type": "archive",
-					"url": "https://download.gnome.org/sources/libpeas/1.22/libpeas-1.22.0.tar.xz",
-					"sha256": "5b2fc0f53962b25bca131a5ec0139e6fef8e254481b6e777975f7a1d2702a962"
+					"type":"archive",
+					"url":"https://download.gnome.org/sources/libpeas/1.22/libpeas-1.22.0.tar.xz",
+					"sha256":"5b2fc0f53962b25bca131a5ec0139e6fef8e254481b6e777975f7a1d2702a962"
 				}
 			]
 		},
 		{
-		    "name": "libvte",
-		    "sources": [
-			{
-			    "type": "archive",
-			    "url": "http://ftp.gnome.org/pub/GNOME/sources/vte/0.29/vte-0.29.1.tar.xz",
-			    "sha256": "5f846c2763eaac95bb15b99dd212d76ec7d723c1c6f81a8b562143f6eaf2ba9e"
-			}
-		    ]
+			"name":"libvte",
+			"sources":[
+				{
+					"type":"archive",
+					"url":"http://ftp.gnome.org/pub/GNOME/sources/vte/0.29/vte-0.29.1.tar.xz",
+					"sha256":"5f846c2763eaac95bb15b99dd212d76ec7d723c1c6f81a8b562143f6eaf2ba9e"
+				}
+			]
 		},
 		{
-			"name": "gtksourceview",
-			"config-opts": [
+			"name":"gtksourceview",
+			"config-opts":[
 				"--disable-static"
 			],
-			"sources": [
+			"sources":[
 				{
-					"type": "archive",
-					"url": "https://download.gnome.org/sources/gtksourceview/3.24/gtksourceview-3.24.6.tar.xz",
-					"sha256": "7aa6bdfebcdc73a763dddeaa42f190c40835e6f8495bb9eb8f78587e2577c188"
+					"type":"archive",
+					"url":"https://download.gnome.org/sources/gtksourceview/3.24/gtksourceview-3.24.6.tar.xz",
+					"sha256":"7aa6bdfebcdc73a763dddeaa42f190c40835e6f8495bb9eb8f78587e2577c188"
 				}
 			]
 		},
 		{
-			"name": "code",
-			"buildsystem": "cmake-ninja",
-			"config-opts": [
+			"name":"code",
+			"buildsystem":"cmake-ninja",
+			"config-opts":[
 				"-DCMAKE_BUILD_TYPE=Release",
 				"-DUSE_ZEITGEIST=0"
 			],
-			"sources": [
+			"sources":[
 				{
-					"type": "archive",
-					"url": "https://github.com/elementary/code/archive/2.4.1.tar.gz",
-					"sha256": "1748ab67ca86f2884d6093b01cb1562d4e0a32eed1222599b2b11906559f1243"
+					"type":"archive",
+					"url":"https://github.com/elementary/code/archive/2.4.1.tar.gz",
+					"sha256":"1748ab67ca86f2884d6093b01cb1562d4e0a32eed1222599b2b11906559f1243"
 				}
 			]
 		}
