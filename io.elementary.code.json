@@ -1,9 +1,9 @@
 {
 	"app-id": "io.elementary.code",
-    "base": "io.elementary.Loki.BaseApp",
-    "runtime": "org.freedesktop.Platform",
-    "sdk": "org.freedesktop.Sdk",
-	"runtime-version": "1.6",
+        "base": "io.elementary.Loki.BaseApp",
+        "runtime": "org.gnome.Platform",
+        "sdk": "org.gnome.Sdk",
+	"runtime-version": "3.28",
 	"command": "io.elementary.code",
 	"finish-args": [
 		"--filesystem=host",
