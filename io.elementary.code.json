@@ -83,9 +83,9 @@
 			],
 			"sources": [
 				{
-					"type": "git",
-					"url": "https://github.com/elementary/code.git",
-					"commit": "9961a0706382dcc7693b01155341c05cb48c7b19"
+					"type": "archive",
+					"url": "https://github.com/elementary/code/archive/2.4.1.tar.gz",
+					"sha256": "1748ab67ca86f2884d6093b01cb1562d4e0a32eed1222599b2b11906559f1243"
 				}
 			]
 		}
