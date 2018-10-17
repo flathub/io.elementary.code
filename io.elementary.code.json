@@ -73,6 +73,20 @@
 			]
 		},
 		{
+			"name": "libgit2-glib",
+			"buildsystem": "meson",
+			"config-opts": [
+				"-Dpython=false"
+			],
+			"sources": [
+				{
+					"type": "archive",
+					"url": "https://github.com/GNOME/libgit2-glib/archive/v0.26.4.tar.gz",
+					"sha256": "832ae9617df72a9a4ad42842630e70ee491614832b92bc6ae4c2b814e1e0953e"
+				}
+			]
+		},
+		{
 			"name":"code",
 			"buildsystem":"meson",
 		      	"config-opts": ["--buildtype=release"],
