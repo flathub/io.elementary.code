@@ -2,8 +2,9 @@
 	"app-id":"io.elementary.code",
 	"runtime":"org.gnome.Platform",
 	"sdk":"org.gnome.Sdk",
-	"runtime-version":"3.28",
-	"base":"io.elementary.Loki.BaseApp",
+	"runtime-version":"3.30",
+	"base":"io.elementary.BaseApp",
+	"base-version": "juno",
 	"command":"io.elementary.code",
 	"finish-args":[
 		"--filesystem=host",
@@ -73,16 +74,13 @@
 		},
 		{
 			"name":"code",
-			"buildsystem":"cmake-ninja",
-			"config-opts":[
-				"-DCMAKE_BUILD_TYPE=Release",
-				"-DUSE_ZEITGEIST=0"
-			],
+			"buildsystem":"meson",
+		      	"config-opts": ["--buildtype=release"],
 			"sources":[
 				{
 					"type":"archive",
-					"url":"https://github.com/elementary/code/archive/2.4.1.tar.gz",
-					"sha256":"1748ab67ca86f2884d6093b01cb1562d4e0a32eed1222599b2b11906559f1243"
+					"url":"https://github.com/elementary/code/archive/3.0.tar.gz",
+					"sha256":"a813b8fc2d9b2972702df6a5a779d150b44e14f8c555e49b4bef8309168b03c1"
 				}
 			]
 		}
