@@ -1,32 +1,25 @@
 {
-	"app-id": "io.elementary.code",
-	"runtime": "org.gnome.Platform",
-	"runtime-version": "3.26",
-	"sdk": "org.gnome.Sdk",
-	"command": "io.elementary.code",
-	"finish-args": [
+	"app-id" : "io.elementary.code",
+	"runtime" : "org.gnome.Platform",
+	"sdk" : "org.gnome.Sdk",
+	"runtime-version" : "3.30",
+	"base" : "io.elementary.BaseApp",
+	"base-version" : "juno",
+	"command" : "io.elementary.code",
+	"finish-args" : [
 		"--filesystem=host",
-
 		"--socket=wayland",
 		"--socket=x11",
 		"--share=ipc",
-
 		"--talk-name=org.gtk.vfs",
 		"--talk-name=org.gtk.vfs.*",
 		"--talk-name=org.gnome.SettingsDaemon",
-
 		"--filesystem=xdg-run/dconf",
 		"--filesystem=xdg-config/dconf:ro",
 		"--talk-name=ca.desrt.dconf",
 		"--env=DCONF_USER_CONFIG_DIR=.config/dconf"
 	],
-	"build-options": {
-		"env": {
-			"PKG_CONFIG_GOBJECT_INTROSPECTION_1_0_GIRDIR": "/app/share/gir-1.0",
-			"PKG_CONFIG_GOBJECT_INTROSPECTION_1_0_TYPELIBDIR": "/app/lib/girepository-1.0"
-		}
-	},
-	"cleanup": [
+	"cleanup" : [
 		"/include",
 		"/lib/pkgconfig",
 		"/share/vala",
@@ -35,84 +28,136 @@
 		"/lib/girepository-1.0",
 		"/lib/*.la"
 	],
-	"modules": [
+	"modules" : [
 		{
-			"name": "libgee",
-			"config-opts": [
-				"--disable-static"
-			],
-			"sources": [
-				{
-					"type": "archive",
-					"url": "https://download.gnome.org/sources/libgee/0.20/libgee-0.20.0.tar.xz",
-					"sha256": "21308ba3ed77646dda2e724c0e8d5a2f8d101fb05e078975a532d7887223c2bb"
-				}
-			]
-		},
-		{
-			"name": "granite",
-			"buildsystem": "cmake-ninja",
-			"config-opts": [
-				"-DCMAKE_BUILD_TYPE=Release",
-				"-DCMAKE_INSTALL_LIBDIR=/app/lib"
-			],
-			"cleanup": [
-				"/bin",
-				"/share/applications"
-			],
-			"sources": [
-				{
-					"type":"archive",
-					"url": "https://github.com/elementary/granite/archive/0.5.tar.gz",
-					"sha256": "cc4905ae70fddeba3d2ded44bb642be77d419aa090251a7ab24c155b8616be06"
-				}
-			]
-		},
-		{
-			"name": "libpeas",
-			"config-opts": [
+			"name" : "libpeas",
+			"config-opts" : [
 				"--disable-static",
 				"--disable-gtk-doc",
 				"--disable-python2",
 				"--disable-python3"
 			],
-			"cleanup": [
+			"cleanup" : [
 				"/bin",
 				"/lib/peas-demo"
 			],
-			"sources": [
+			"sources" : [
 				{
-					"type": "archive",
-					"url": "https://download.gnome.org/sources/libpeas/1.22/libpeas-1.22.0.tar.xz",
-					"sha256": "5b2fc0f53962b25bca131a5ec0139e6fef8e254481b6e777975f7a1d2702a962"
+					"type" : "archive",
+					"url" : "https://download.gnome.org/sources/libpeas/1.22/libpeas-1.22.0.tar.xz",
+					"sha256" : "5b2fc0f53962b25bca131a5ec0139e6fef8e254481b6e777975f7a1d2702a962"
 				}
 			]
 		},
 		{
-			"name": "gtksourceview",
-			"config-opts": [
+			"name" : "libvte",
+			"sources" : [
+				{
+					"type" : "archive",
+					"url" : "http://ftp.gnome.org/pub/GNOME/sources/vte/0.29/vte-0.29.1.tar.xz",
+					"sha256" : "5f846c2763eaac95bb15b99dd212d76ec7d723c1c6f81a8b562143f6eaf2ba9e"
+				}
+			]
+		},
+		{
+			"name" : "gtksourceview",
+			"config-opts" : [
 				"--disable-static"
 			],
-			"sources": [
+			"sources" : [
 				{
-					"type": "archive",
-					"url": "https://download.gnome.org/sources/gtksourceview/3.24/gtksourceview-3.24.6.tar.xz",
-					"sha256": "7aa6bdfebcdc73a763dddeaa42f190c40835e6f8495bb9eb8f78587e2577c188"
+					"type" : "archive",
+					"url" : "https://download.gnome.org/sources/gtksourceview/3.24/gtksourceview-3.24.9.tar.xz",
+					"sha256" : "699d76a453e6a3d3331906346e3dbfa25f2cbc9ec090e46635e9c6bb595e07c2"
+				}
+			]
+		},
+    {
+        "name" : "libssh2",
+        "buildsystem" : "cmake-ninja",
+        "config-opts" : [
+            "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
+            "-DCMAKE_INSTALL_LIBDIR:PATH=/app/lib",
+            "-DBUILD_SHARED_LIBS:BOOL=ON"
+        ],
+        "cleanup" : [
+            "/share/doc"
+        ],
+        "sources" : [
+            {
+                "type" : "git",
+                "url" : "https://github.com/libssh2/libssh2.git",
+                "branch" : "libssh2-1.8.0"
+            }
+        ]
+    },
+		{
+			"name" : "libgit2",
+			"buildsystem" : "cmake-ninja",
+			"config-opts" : [
+					"-DCMAKE_BUILD_TYPE=RelWithDebInfo",
+					"-DBUILD_SHARED_LIBS:BOOL=ON",
+					"-DTHREADSAFE=ON"
+			],
+			"sources" : [
+					{
+							"type" : "git",
+							"url" : "https://github.com/libgit2/libgit2.git",
+							"branch" : "maint/v0.26"
+					}
+			]
+		},
+		{
+			"name" : "libgit2-glib",
+			"buildsystem" : "meson",
+			"config-opts" : [
+        "--libdir=/app/lib",
+        "--buildtype=release"
+			],
+      "builddir" : true,
+			"sources" : [
+				{
+					"type" : "archive",
+					"url" : "https://github.com/GNOME/libgit2-glib/archive/v0.26.4.tar.gz",
+					"sha256" : "832ae9617df72a9a4ad42842630e70ee491614832b92bc6ae4c2b814e1e0953e"
 				}
 			]
 		},
 		{
-			"name": "code",
-			"buildsystem": "cmake-ninja",
-			"config-opts": [
-				"-DCMAKE_BUILD_TYPE=Release",
-				"-DUSE_ZEITGEIST=0"
+			"name" : "libeditorconfig",
+			"buildsystem" : "cmake",
+			"config-opts" : [
+				"-DCMAKE_INSTALL_LIBDIR=/app/lib",
+				"-DBUILD_DOCUMENTATION=OFF"
 			],
-			"sources": [
+			"cleanup": [
+				"/bin",
+				"share/man"
+			],
+			"sources" : [
 				{
-					"type": "git",
-					"url": "https://github.com/elementary/code.git",
-					"commit": "9961a0706382dcc7693b01155341c05cb48c7b19"
+					"type" : "archive",
+					"url" : "https://github.com/editorconfig/editorconfig-core-c/archive/v0.12.2.tar.gz",
+					"sha256": "8a63ae63d3a2f2a202acbd94a6cbe3fa4450c2658e33e922683af33c48a9115d"
+
+				}
+			]
+		},
+		{
+			"name" : "code",
+			"buildsystem" : "meson",
+    	"config-opts" : [
+				"--buildtype=release"
+			],
+			"sources" : [
+				{
+					"type" : "archive",
+					"url" : "https://github.com/elementary/code/archive/3.0.tar.gz",
+					"sha256" : "a813b8fc2d9b2972702df6a5a779d150b44e14f8c555e49b4bef8309168b03c1"
+				},
+				{
+					"type" : "patch",
+					"path" : "elementary-theme.patch"
 				}
 			]
 		}
